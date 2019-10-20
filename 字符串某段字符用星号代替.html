@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="userName"></p>
+</body>
+<script>
+    // var userName = document.getElementById('userName')
+    // var str = '13713557845'
+    // a = str.substr(0, parseInt(str.split('').length / 2)) + '**' + str.substr(parseInt(str.split('').length / 2 + 2), str.split('').length)
+    // userName.innerHTML = a
+    var str = '13713557845';
+  //  a = str.substr(0, 2) + '***' + str.substr(5, str.split('').length);
+    a = str.substr(0, 2) + '*******' + str.substr(str.length-2, str.length);
+    document.write(a);
+    document.write('<br>');
+
+    var str = '河南纳智企业管理咨询有限公司';
+    b = str.substr(0, parseInt(str.split('').length / 6)) + '***' + str.substr(parseInt(str.split('').length / 2 - 4), str.split('').length);
+    document.write(b);
+    document.write('<br>');
+
+</script>
+
+
+</html>

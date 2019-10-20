@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>登录</title>
+  <style>
+	.hint{
+		color:#d5d5d5;}
+	.correct{
+		color:blue;}
+	.wrong{
+		color:red;}
+  </style>
+ </head>
+ <body onload="check();">
+	<form action="login.php" method="post" name="form1" onsubmit="return check();">
+		用户名：<input type="text" name="username" id="username"/><span></span><br/><br/>	
+		密&nbsp;码：<input type="password" name="password" id="password"/><span></span><br/><br/>
+		<input type="submit" value="登录"/>
+	</form>
+	<script>
+		//1：获取输入框当中的对象
+		var username=document.getElementById("username");
+		//获取username后面的span对象
+		var uspan=getSpan(username);
+		var password=document.getElementById("password");
+		//获取password后面的span对象
+		var pspan=getSpan(password);
+		//定义验证的标志位
+		uflag=false;
+		pflag=false;
+		//自定义函数，获取span对象
+		function getSpan(obj){
+			while(true){
+				if(obj.nodeName=="SPAN"){
+					return obj;
+					}else{
+						obj=obj.nextSibling;
+						}
+				}
+			}
+			function check(){
+				//验证username
+				//当用户名获得焦点的时候
+				username.onfocus=function(){
+					if(username.value==""){
+						uspan.innerHTML="请输入用户名";
+						uspan.className="hint";
+						uflag=false;
+						}
+					}
+				//当用户失去焦点的时候
+				username.onblur=function(){
+					if(username.value==""){
+						uspan.innerHTML="用户名不能为空";
+						uspan.className="wrong";
+						uflag=false;}else{
+							uspan.innerHTML="这是一个合法用户";
+							uspan.className="correct";
+							uflag=true;
+							}
+					}
+				//验证password
+				//当密码获得焦点的时候
+				password.onfocus=function(){
+					if(password.value==""){
+						pspan.innerHTML="请输入密码";
+						pspan.className="hint";
+						pflag=false;
+						}
+					}
+				//当密码失去焦点的时候
+				password.onblur=function(){
+					if(password.value==""){
+						pspan.innerHTML="密码不能为空";
+						pspan.className="wrong";
+						pflag=false;}else{
+							pspan.innerHTML="这是一个合法的密码";
+							pspan.className="correct";
+							pflag=true;
+					}
+				}
+			//只有当用户名和密码的标志位都为true的时候才允许提交
+				if(uflag==true&&pflag==true){
+					return true;
+					}else{
+						return false;
+						}
+			}
+	</script>
+ </body>
+</html>
